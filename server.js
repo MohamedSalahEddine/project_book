@@ -22,6 +22,6 @@ app.use(expressLayouts);
 app.use(express.static('public'))
 
 app.use('/', index_router)
-app.use('/author', author_router)
+app.use('/authors', author_router)
 
 app.listen(process.env.PORT)
