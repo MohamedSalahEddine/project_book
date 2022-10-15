@@ -16,6 +16,7 @@ db.once('open', ()=> console.log('connected to databse'))
 
 const index_router = require('./routes/index')
 const author_router = require('./routes/author')
+const books_router = require('./routes/book')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -27,5 +28,6 @@ app.use(express.static('public'))
 
 app.use('/', index_router)
 app.use('/authors', author_router)
+app.use('/books', books_router)
 
 app.listen(process.env.PORT)
