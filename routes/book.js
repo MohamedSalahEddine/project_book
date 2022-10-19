@@ -3,8 +3,18 @@ const router = express.Router()
 
 const Book = require('../models/book')
 
-router.get('/', (req, res)=>{
-    res.render('books/index')
+router.get('/', async (req, res)=>{
+    try{
+        const books = await Book.find({});
+        res.render('books/index', {
+            books: books
+        })
+        
+    }catch(err){
+        res.render('books/index', {
+            errorMessage: 'cannot display the books'
+        })
+    }
 })
 
 router.get('/new', (req, res)=>{
